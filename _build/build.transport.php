@@ -8,7 +8,7 @@ set_time_limit(0);
 define('PKG_NAME','LoremIpsum');
 define('PKG_NAME_LOWER','loremipsum');
 define('PKG_VERSION','0.5');
-define('PKG_RELEASE','beta1');
+define('PKG_RELEASE','alpha1');
 define('WORKSPACE_ID', 2);
  
 /* define build paths */
