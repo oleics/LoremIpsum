@@ -6,6 +6,12 @@ generates random Resources containing LoremIpsums
 as contents. The goal is to create a natural-
 looking site by only one button-click.
 
+## Special Thanks
+
+Dino Dini
+http://dinodini.wordpress.com/2011/03/29/randomness/
+Thank you for this post and lovely "GOAL" memories.
+ 
 ## Development Setup
 
 ### Namespace
