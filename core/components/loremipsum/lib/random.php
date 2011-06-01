@@ -30,6 +30,10 @@ function lcg_rand_ndn($n) {
     return $sum/$n;
 }
 
+function lcg_probability($chance) {
+    return lcg_value() <= $chance;
+}
+
 /*
 seed_rand_ndn(1);
 
