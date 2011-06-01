@@ -11,6 +11,10 @@ $_lang['loremipsum.resources_desc'] = 'Generate resources.';
 
 $_lang['loremipsum.number'] = 'Number';
 $_lang['loremipsum.number_desc'] = 'Number of pages to generate.';
+$_lang['loremipsum.context_key'] = 'Context';
+$_lang['loremipsum.context_key_desc'] = 'Context.';
+$_lang['loremipsum.template'] = 'Template';
+$_lang['loremipsum.template_desc'] = 'Template.';
 $_lang['loremipsum.depth'] = 'Depth';
 $_lang['loremipsum.depth_desc'] = 'Maximum depth.';
 

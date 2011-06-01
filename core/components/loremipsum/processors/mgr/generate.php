@@ -22,16 +22,29 @@ $wordspp = $modx->getOption('wordspp', $scriptProperties, 100);
 $depth = $modx->getOption('depth', $scriptProperties, 3);
 $dices = $modx->getOption('dices', $scriptProperties, 3);
 
+/* check if context exists */
+$context = $modx->getObject('modContext', $context_key);
+if(!$context) {
+    return $modx->error->failure('Context not found.');
+}
+
+/* check if template exists */
+$tpl = $modx->getObject('modTemplate', $template);
+if(!$tpl) {
+    return $modx->error->failure('Template not found.');
+}
+
 /*  */
 if(!$modx->loadClass('lib.LoremIpsumGenerator', $modx->loremipsum->config['corePath'], true, true)) {
     return $modx->error->failure('Could not load class lib.LoremIpsumGenerator');
 }
+$generator = new LoremIpsumGenerator($wordspp);
 #require_once($modx->loremipsum->config['corePath'].'lib/loremipsumgenerator.class.php');
+
+/*  */
 require_once($modx->loremipsum->config['corePath'].'lib/random.php');
 
 /*  */
-$generator = new LoremIpsumGenerator($wordspp);
-
 for($i=0; $i<$number; $i++) {
 
     /*  */
@@ -40,7 +53,7 @@ for($i=0; $i<$number; $i++) {
         $query->where(array(
             'isfolder' => '1',
             'template' => $template,
-            'context_key' => $context_key
+            'context_key' => $context->get('key')
         ));
         $query->select($modx->getSelectColumns('modResource', '', '', array('id')));
         $num = $modx->getCount('modResource', $query);
