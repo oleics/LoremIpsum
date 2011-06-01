@@ -43,13 +43,17 @@ if(!$template) {
 }
 
 /* check if parent exists */
-$tmp = $modx->getObject('modResource', $parent);
-if(!$tmp) {
-    $modx->error->addField('parent', $modx->lexicon('err_nf'));
-    $modx->log(modX::LOG_LEVEL_ERROR, 'Parent not found.');
-    return $modx->error->failure();
+if($parent) {
+    $tmp = $modx->getObject('modResource', $parent);
+    if(!$tmp) {
+        $modx->error->addField('parent', $modx->lexicon('err_nf'));
+        $modx->log(modX::LOG_LEVEL_ERROR, 'Parent not found.');
+        return $modx->error->failure();
+    }
+    unset($tmp);
+} else {
+    $parent = (int) $parent;
 }
-unset($tmp);
 
 /*  */
 if(!$modx->loadClass('lib.LoremIpsumGenerator', $modx->loremipsum->config['corePath'], true, true)) {
